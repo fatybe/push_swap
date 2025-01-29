@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:25:41 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/01/26 11:56:25 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/01/29 10:03:40 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ int ft_atoi(char *str)
 }
 node  *add_node(node **lst , node *newnode)
 {
-    node *head = *lst;
-    node *last = *lst;
+    node *head;
+    node *last;
+    
+    head = *lst;
     if (lst == NULL && newnode == NULL)
         return (NULL);   
     if (*lst == NULL)
@@ -95,7 +97,7 @@ node  *add_node(node **lst , node *newnode)
         *lst = newnode;
         return (*lst);
     }
-    
+    last = *lst;
     while (last->next != NULL)
     {
         last = last->next;
@@ -234,7 +236,8 @@ int check_error(char *arv)
 int main(int arc , char **arv)
 {
     int i;
-    node *stack;
+    node *stack_a;
+    node *stack_b;
     
     i = 1;
     if (arc > 1)
@@ -248,12 +251,9 @@ int main(int arc , char **arv)
             }  
             i++;
         }
-       stack = check_args(arv, arc);
-       while(stack != NULL)
-       {
-        printf("%d\n",stack->data);
-        stack = stack->next;
-       }
+       stack_a = check_args(arv, arc);
+       stack_b = NULL;
+    //   ft_sorting(stack_a, stack_b);
     }
     return 0;
 }
