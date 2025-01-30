@@ -1,17 +1,17 @@
 CC = cc
 
-NAME = libftpushswap.a
+NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
-SRCS = operating.c 
+SRCS = check_args.c check_errors.c function1.c operations1.c operations2.c push_swap.c sort_stack.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -22,4 +22,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
 .PHONY : all clean fclean re

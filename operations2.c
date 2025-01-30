@@ -1,98 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operating.c                                        :+:      :+:    :+:   */
+/*   operations2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 21:15:10 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/01/21 15:05:10 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/01/30 13:50:41 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/01/30 13:59:56 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap_a(node *head)
-{
-    if (head != NULL && head->next != NULL)
-    {
-        node *tmp;
-        tmp->data = head->data;
-        head->data = head->next->data;
-        head->next->data = tmp->data;
-    }
-    
-}
-void swap_b(node *head)
-{
-    if (head != NULL && head->next != NULL)
-    {
-        int tmp;
-        tmp = head->data;
-        head->data = head->next->data;
-        head->next->data = tmp;
-    }
-    
-}
-void swap_a_b(node *heada, node *headb)
-{
-    if(heada != NULL && heada->next != NULL)
-    {
-        node *tmp;
-        tmp->data = heada->data;
-        heada->data = heada->next->data;
-        heada->next->data = tmp->data;
-    }
-    if(headb != NULL && headb->next != NULL)
-    {
-        node *tmpb;
-        tmpb->data = headb->data;
-        headb->data = headb->next->data;
-        headb->next->data = tmpb->data;
-    }
-}
-//as: push_a
-void push_a(node **heada, node **headb)
-{
-    if (!headb)
-        return ;
-    node *tmp;
-    tmp = *headb;
-    *headb = (*headb)->next;
-    tmp->next = *heada;
-    *heada = tmp;
-}
-void push_b(node **heada, node **headb)
-{
-    if (!heada)
-        return ;
-    node *tmp;
-    tmp = *heada;
-    *heada = (*heada)->next;
-    tmp->next = *headb;
-    *headb = tmp;
-}
-void rotate_a(node **lsta)
-{
-    if (!lsta)
-        return ;
-    node *last = *lsta;
-    node *tmp;
-    while (last->next != NULL)
-    {
-        last = last->next;
-    }
-    tmp = *lsta;
-    last->next = *lsta;
-    *lsta = (*lsta)->next;
-    tmp->next = NULL;
-}
 void rotate_b(node **lstb)
 {
+    node    *last;
+    node    *tmp;
+
+    last = *lstb;
     if (!lstb)
         return ;
-    node *last = *lstb;
-    node *tmp;
+    
     while (last->next != NULL)
     {
         last = last->next;
@@ -104,14 +32,16 @@ void rotate_b(node **lstb)
 }
 void ra_rb(node **heada, node **headb)
 {
+    node    *lasta; 
+    node    *tmpa;
+    node    *lastb;
+    node    *tmpb;
+    
     if (!heada || !headb || !*heada || !*headb)
         return ;
     if (!(*heada)->next || !(*headb)->next)
         return ;
-    node *lasta = *heada;
-    node *tmpa;
-    node *lastb;
-    node *tmpb; 
+    lasta = *heada;
     while (lasta->next != NULL)
     {
         lasta = lasta->next;
@@ -133,11 +63,14 @@ void ra_rb(node **heada, node **headb)
 }
 void rra(node **lst)
 {
+    node    *last;
+    node    *prev;
+    node    *head;
+
+    last = *lst;
     if (!lst)
         return ;
-    node *last = *lst;
-    node *prev;
-    node *head;
+    
     while(last->next != NULL)
     {
         prev = last;
@@ -150,11 +83,14 @@ void rra(node **lst)
 }
 void rrb(node **lst)
 {
+    node    *last;
+    node    *prev;
+    node    *head;
+
+    last = *lst;
     if (!lst)
         return ;
-    node *last = *lst;
-    node *prev;
-    node *head;
+    
     while(last->next != NULL)
     {
         prev = last;
@@ -167,14 +103,18 @@ void rrb(node **lst)
 }
 void rrr(node **lsta, node **lstb)
 {
+    
+    node    *lasta;
+    node    *lastb;
+    node    *preva;
+    node    *prevb;
+    node    *heada;
+    node    *headb;
+    
+    lasta = *lsta;
+    lastb = *lstb;
     if (!lsta || !lstb)
         return ;
-    node *lasta = *lsta;
-    node *lastb = *lstb;
-    node *preva;
-    node *prevb;
-    node *heada;
-    node *headb;
     while (lasta->next != NULL)
     {
         preva = lasta;
