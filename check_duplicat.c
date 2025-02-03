@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   check_duplicat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 21:26:14 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/03 10:39:12 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/02/01 18:37:52 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/02/01 18:51:27 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort_turk(node **a)
+int is_duplicate(node *stack)
 {
-    node *b;
-    //node *stack;
-
-    b = NULL;
-    push_ato_b(a, &b);
-    if (check_sort(*a) == 1)
-        sort_three(a);
-    ft_sort(a, &b);
-    /*stack = *a;
-    while (stack != NULL)
+    node *tmp;
+    node *lst;
+    
+    lst = stack;
+    while(lst != NULL && lst->next != NULL)
     {
-        printf("%d\n",stack->data);
-        stack = stack->next;
+        tmp = lst->next;
+        while (tmp != NULL && tmp->next != NULL)
+        {
+            if (lst->data == tmp->data)
+                return (1);
+            tmp = tmp->next;
+        }
+        lst = lst->next;
     }
-    printf("****\n");
-    stack = b;
-    while (stack != NULL)
-    {
-        printf("%d\n",stack->data);
-        stack = stack->next;
-    }*/
+    return (0);
 }

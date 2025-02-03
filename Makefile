@@ -4,8 +4,7 @@ NAME = push_swap
 
 CFLAGS = -g -Wall -Wextra -Werror
 
-SRCS = check_args.c check_errors.c function1.c operations1.c operations2.c push_swap.c sort_stack.c
-
+SRCS = ft_error.c ft_utils1.c ft_utils2.c full_stack.c push_swap.c check_duplicat.c operation1.c operation2.c sort_stack.c sort_utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

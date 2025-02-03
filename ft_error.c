@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 21:26:14 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/03 10:39:12 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/02/01 15:34:00 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/02/01 16:53:23 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort_turk(node **a)
+int is_digite(char c)
 {
-    node *b;
-    //node *stack;
+    if (c >= '0' && c <= '9')
+        return (0);
+    else
+        return (1);
+}
 
-    b = NULL;
-    push_ato_b(a, &b);
-    if (check_sort(*a) == 1)
-        sort_three(a);
-    ft_sort(a, &b);
-    /*stack = *a;
-    while (stack != NULL)
-    {
-        printf("%d\n",stack->data);
-        stack = stack->next;
-    }
-    printf("****\n");
-    stack = b;
-    while (stack != NULL)
-    {
-        printf("%d\n",stack->data);
-        stack = stack->next;
-    }*/
+void    ft_error(void)
+{
+    write (1, "ERROR\n", 6);
+    exit(0);
 }
