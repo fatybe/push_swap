@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:29:19 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 21:57:01 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:14:16 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void   push_ato_b(node **a, node **b)
 	}
  }
 
- int find_max(node **a)
+ int find_max(node *a)
 {
 	int max;
 	node *lst;
 
-	lst = *a;
+	lst = a;
 	max = lst->data;
 	while (lst != NULL && lst->next != NULL)
 	{
@@ -65,13 +65,28 @@ void   push_ato_b(node **a, node **b)
 	}
 	return (max);
 }
+ int find_min(node *a)
+{
+	int min;
+	node *lst;
+
+	lst = a;
+	min = lst->data;
+	while (lst != NULL && lst->next != NULL)
+	{
+		if (min > lst->next->data)
+			min = lst->next->data;
+		lst = lst->next;
+	}
+	return (min);
+}
 
  void    sort_three(node **a)
 {
 	int max;
 	node *tmp;
 
-	max = find_max(a);
+	max = find_max(*a);
 	tmp = *a;
 	if (max == tmp->data)
 		rotate_a(a);

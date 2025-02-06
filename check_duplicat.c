@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 18:37:52 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 18:51:27 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:29:04 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int is_duplicate(node *stack)
     node *lst;
     
     lst = stack;
-    while(lst != NULL && lst->next != NULL)
+    while(lst != NULL)
     {
         tmp = lst->next;
-        while (tmp != NULL && tmp->next != NULL)
+        while (tmp != NULL)
         {
             if (lst->data == tmp->data)
                 return (1);

@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:20:28 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 21:21:15 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:53:23 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void    swap_a(node **head)
 {
     node    *tmp;
 
-    tmp = *head;
     if ((*head) != NULL && (*head)->next != NULL)
     {
-        tmp->data = (*head)->data;
-        (*head)->data = (*head)->next->data;
-        (*head)->next->data = tmp->data;
+        tmp = *head;
+        *head = (*head)->next;
+        tmp->next = (*head)->next;
+        (*head)->next = tmp;
     }
     
 }

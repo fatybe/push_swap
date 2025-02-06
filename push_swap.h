@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:59:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/03 10:38:50 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:11:32 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 typedef struct node {
     int data;
     struct node* next;
-    int target;
+    struct node *target;
     int cost;
 }node;
 
@@ -51,5 +51,17 @@ void    sort_turk(node **a);
 void   push_ato_b(node **a, node **b);
 int check_sort(node *lst);
 void    sort_three(node **a);
-int find_max(node **a);
+int find_max(node *a);
+int find_min(node *a);
+int count_lst(node *a);
+void ft_sort(node **a, node **b);
+void find_target(node *a, node *b);
+
+void    ft_pushb_to_a(node **a, node **b);
+//int find_min_cost(node *a);
+//void	ft_finalsort(node **a, node **b, int i, int n);
+node *min_node(node *a);
+void    find_cost(node *lst);
+int    Middle_Check(node *lst, node *node);
+
 #endif
