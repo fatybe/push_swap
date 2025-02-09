@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:26:14 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/04 11:31:20 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/08 17:11:07 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void    sort_turk(node **a)
 {
     node *b;
-    node *stack;
+   // node *stack;
 
     b = NULL;
     push_ato_b(a, &b);
     if (check_sort(*a) == 1)
         sort_three(a);
-    stack = *a;
-    while (stack != NULL)
+   //stack = *a;
+   /* while (stack != NULL)
     {
         printf("%d\n",stack->data);
         stack = stack->next;
@@ -34,6 +34,6 @@ void    sort_turk(node **a)
         printf("%d\n",stack->data);
         stack = stack->next;
     }
-    printf("******\n\n");
+    printf("******\n\n");*/
     ft_sort(a, &b);
 }

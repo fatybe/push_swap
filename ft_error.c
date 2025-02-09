@@ -6,11 +6,36 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:34:00 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 16:53:23 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/09 12:20:06 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    free_stack(node **a)
+{
+    
+    node *lst;
+    node *next;
+
+    if (!a || !*a)
+        return;
+
+    lst = *a;
+    while (lst)
+    {
+        next = lst->next;
+        free(lst);
+        lst = next;
+    }
+    *a = NULL;
+}
+
+void free_all(node **a, node **b)
+{
+    free_stack(a);
+    free_stack(b);
+}
 
 int is_digite(char c)
 {

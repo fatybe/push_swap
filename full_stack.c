@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:57:22 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 16:52:31 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/09 12:24:22 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,12 @@ node *ft_fullstack(int ac, char **av)
     else
     {
         str = ft_strjoin(ac, av);
+        if (!str)
+            return (NULL);
         tmp = creat_stack(str);
+        free (str);
+        if (!tmp)
+            return (NULL);
     }
     return (tmp);
 }

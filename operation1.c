@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:20:28 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/03 15:53:23 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:44:33 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    swap_a(node **head)
         tmp->next = (*head)->next;
         (*head)->next = tmp;
     }
-    
+    write (1,"sa\n", 3);
 }
 
 void    swap_a_b(node *heada, node *headb)
@@ -45,6 +45,7 @@ void    swap_a_b(node *heada, node *headb)
         headb->data = headb->next->data;
         headb->next->data = tmpb->data;
     }
+    write (1,"sab\n", 4);
 }
 
 void    push_a(node **heada, node **headb)
@@ -57,6 +58,7 @@ void    push_a(node **heada, node **headb)
     *headb = (*headb)->next;
     tmp->next = *heada;
     *heada = tmp;
+    write (1,"pa\n", 3);
 }
 
 void    push_b(node **heada, node **headb)
@@ -69,6 +71,7 @@ void    push_b(node **heada, node **headb)
     *heada = (*heada)->next;
     tmp->next = *headb;
     *headb = tmp;
+    write (1,"pb\n", 3);
 }
 
 void    rotate_a(node **lsta)
@@ -87,4 +90,5 @@ void    rotate_a(node **lsta)
     last->next = *lsta;
     *lsta = (*lsta)->next;
     tmp->next = NULL;
+    write (1,"ra\n", 3);
 }

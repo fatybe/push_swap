@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 21:43:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/06 12:36:48 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/02/03 17:31:42 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/02/08 22:26:32 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,26 @@ node *min_node(node *a)
 void find_target(node *a, node *b)
 {
     node *tmp;
-    node *target;
+    node *lst;
+    int max;
+    node    *target;
     
     while (b != NULL)
     {
         tmp = a;
-        if (find_max(a) > b->data)
+        max = INT_MAX;
+        while (tmp != NULL)
         {
-            target = a;
-            while (tmp != NULL)
+            lst = tmp;
+            if ((b->data < tmp->data) && (lst->data < max))
             {
-                if (b->data < tmp->data)
-                {
-                    if (tmp->data < target->data)
-                        target = tmp;
-                }    
-                tmp = tmp->next;
-            }
+                max = lst->data;
+                target = lst;
+            }    
+            tmp = tmp->next;
         }
-        else if (find_max(a) < b->data)
+        if (find_max(a) < b->data)
             target = min_node(a);
-        printf("%d\n",target->data);
         b->target = target;
         b = b->next;
     }
@@ -54,17 +53,19 @@ void find_target(node *a, node *b)
 int    Middle_Check(node *lst, node *node)
 {
     int i;
+    int n;
 
     i = 0;
+    n = count_lst(lst);
     if (lst == NULL || node == NULL)
         return -1;
     while (lst != NULL)
     {
-        if (lst->data == node->data)
+        if (lst == node)
         {
-            if (i <= count_lst(lst) / 2)
+            if (i <= n / 2)
                 return (0);
-            else if (i > count_lst(lst) / 2)
+            else if (i > n / 2)
                 return (1);
         }
         lst = lst->next;
@@ -79,13 +80,13 @@ void    find_cost(node *lst)
     
     tmp = lst;
     n = 0;
-    while (Middle_Check(lst, tmp) == 0)
+    while (tmp != NULL  && (Middle_Check(lst, tmp) == 0))
     {
         tmp->cost = n;
         tmp = tmp->next;
         n++;
     }
-    while (Middle_Check(lst, tmp) == 1)
+    while (tmp != NULL && (Middle_Check(lst, tmp) == 1))
     {
         tmp->cost = count_lst(lst) - n;
         tmp = tmp->next;
@@ -93,25 +94,4 @@ void    find_cost(node *lst)
     }
 }
 
-void ft_sort(node **a, node **b)
-{
-    node *tmp = *a;
-    node *tmpb = *b;
-   // while (count_lst(*b) != 0)
-    //{
-        find_target(*a, *b);
-        find_cost(*a);
-        find_cost(*b);
-        while (tmpb != NULL)
-        {
-            if (tmpb->target != NULL)
-                printf("Target: %d\n", tmpb->target->data);
-            printf("cost  :  %d\n",tmp->cost);
-            tmpb = tmpb->next;
-        }
-        while (tmp != NULL)
-        {
-            printf("cost : %d\n",tmp->cost);
-            tmp = tmp->next;
-        }
-}
+ 

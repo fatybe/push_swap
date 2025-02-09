@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:17:50 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 18:33:31 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/09 12:34:30 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char *ft_strjoin(int ac, char **av)
 	i = 1;
 	k = 0;
 	len = count_array(av);
-	str = malloc((len + (ac - 2) + 1));
+	str = malloc((len + (ac - 1) + 1));
 	if (!str)
 		return (NULL);
 	while (av[i])

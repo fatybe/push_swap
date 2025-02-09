@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:20:45 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 21:22:03 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:45:55 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void rotate_b(node **lstb)
     last->next = *lstb;
     *lstb = (*lstb)->next;
     tmp->next = NULL;
+    write (1,"rb\n", 3);
 }
 void ra_rb(node **heada, node **headb)
 {
@@ -59,7 +60,7 @@ void ra_rb(node **heada, node **headb)
     lastb->next = *headb;
     *headb = (*headb)->next;
     tmpb->next = NULL;
-    
+    write (1,"rab\n", 4);
 }
 void rra(node **lst)
 {
@@ -80,6 +81,7 @@ void rra(node **lst)
     prev->next = NULL;
     last->next = *lst;
     *lst = head;
+    write (1,"rra\n", 4);
 }
 void rrb(node **lst)
 {
@@ -100,6 +102,7 @@ void rrb(node **lst)
     prev->next = NULL;
     last->next = *lst;
     *lst = head;
+    write (1,"rrb\n", 4);
 }
 void rrr(node **lsta, node **lstb)
 {
@@ -133,4 +136,5 @@ void rrr(node **lsta, node **lstb)
     prevb->next = NULL;
     lastb->next = *lstb;
     *lstb = headb;
+    write (1,"rrr\n", 4);
 }

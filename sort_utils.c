@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:29:19 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/06 11:14:16 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/09 12:44:39 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int count_lst(node *a)
 }
 void   push_ato_b(node **a, node **b)
  {
-     if ((*a) == NULL)
+    if ((*a) == NULL)
 		return ;
 	while(count_lst(*a) > 3)
 	{
-		push_b(a, b);
+			push_b(a, b);
 	}
  }
 

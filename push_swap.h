@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:59:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/06 11:11:32 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/09 12:17:22 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ typedef struct node {
     int data;
     struct node* next;
     struct node *target;
+    int total_cost;
     int cost;
 }node;
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 
 node *ft_fullstack(int ac, char **av);
@@ -30,6 +32,8 @@ int count_array(char ** arv);
 char *ft_strjoin(int ac, char **av);
 int ft_atoi(char *str);
 int is_digite(char c);
+void    free_stack(node **a);
+void free_all(node **a, node **b);
 void    ft_error(void);
 node *creat_stack(char *str);
 void    ft_checkdigit(char *str);
@@ -56,12 +60,14 @@ int find_min(node *a);
 int count_lst(node *a);
 void ft_sort(node **a, node **b);
 void find_target(node *a, node *b);
-
+node    *find_node(node *b);
 void    ft_pushb_to_a(node **a, node **b);
-//int find_min_cost(node *a);
-//void	ft_finalsort(node **a, node **b, int i, int n);
+void    final_sort(node **a, node **b, node *cheapest);
 node *min_node(node *a);
+void    final_cost(node *b);
 void    find_cost(node *lst);
 int    Middle_Check(node *lst, node *node);
+void final_step(node **a);
+int ft_check(node *a);
 
 #endif

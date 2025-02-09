@@ -5,52 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 17:31:42 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/06 11:05:04 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/02/08 22:25:43 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/02/09 11:35:56 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min_cost(node *a)
+void    final_cost(node *b)
 {
-	int min;
-	node *lst;
-
-	lst = a;
-	min = lst->cost;
-	while (lst != NULL && lst->next != NULL)
-	{
-		if (min > lst->next->cost)
-			min = lst->next->cost;
-		lst = lst->next;
-	}
-	return (min);
+    while (b != NULL)
+    {
+        b->total_cost = b->cost + b->target->cost;
+        b = b->next;
+    }
 }
-// void	ft_finalsort(node **a, node **b, int i, int n)
-// {
-	
-// }
-void    ft_pushb_to_a(node **a, node **b)
+node    *find_node(node *b)
 {
-	node *lst;
-	node *lsta;
-	int n;
-	int i;
+    int     min;
+    node    *lst;
 
-	lst = *b;
-	lsta = *a;
-	n = 0;
-	while (lst != NULL && (find_min_cost(*b) != lst->cost))
-	{
-		lst = lst->next;
-		n++;
-	}
-	i = 0;
-	while (lsta != NULL && (lst->target != lsta->data))
-	{
-		lsta = lsta->next;
-		i++;
-	}
-	ft_finalsort(a, b, i, n);
+    min = b->total_cost;
+    lst = b;
+    while (b != NULL)
+    {
+        if (min > b->total_cost)
+        {
+            min = b->total_cost;
+            lst = b;
+        }  
+        b = b->next;  
+    }
+    return (lst);
 }
+
+int ft_check(node *a)
+{
+    int arr[count_lst(a)];
+    int i;
+    int middle;
+    node    *lst;
+
+
+    i = 0;
+    lst = a;
+    while (lst != NULL)
+    {
+        arr[i] = lst->data;
+        lst = lst->next;
+    }
+    middle = i / 2;
+    if (a->data > arr[middle])
+        return (1);
+    else
+        return (0);
+} 
