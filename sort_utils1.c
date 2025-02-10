@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils2.c                                      :+:      :+:    :+:   */
+/*   sort_utils1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 21:43:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/08 17:25:23 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/10 01:13:18 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void    final_sort(node **a, node **b, node *cheapest)
 {
-    while ((Middle_Check(*b, cheapest) == 0) && (Middle_Check(*b, cheapest->target) == 0))
-    {
-        if ((cheapest != *b) || (cheapest->target != *a))
-            ra_rb(a, b);
-    }
-    while ((Middle_Check(*b, cheapest) == 1) && (Middle_Check(*b, cheapest->target) == 1))
-    {
-        if ((cheapest != *b) || (cheapest->target != *a))
-            rrr(a, b);
-    }
+    if (Middle_Check(*b, cheapest) == 0 && Middle_Check(*a, cheapest->target) == 0)
+        while ((cheapest != *b) && (cheapest->target != *a))
+            ra_rb(a, b); 
+    else if (Middle_Check(*b, cheapest) == 1  && Middle_Check(*a, cheapest->target) == 1)
+        while ((cheapest != *b) && (cheapest->target != *a))
+            rrr(a, b); 
     while (cheapest != *b)
     {
         if (Middle_Check(*b, cheapest) == 0)
@@ -77,7 +73,7 @@ void ft_sort(node **a, node **b)
         find_target(*a, *b);
         find_cost(*a);
         find_cost(*b);
-        final_cost(*b);
+        final_cost(*b, *a);
         cheapest = find_node (*b);
         final_sort(a, b, cheapest);
     }

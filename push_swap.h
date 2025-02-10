@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:59:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/09 12:17:22 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/10 01:35:44 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct node {
     struct node *target;
     int total_cost;
     int cost;
+    int rank;
 }node;
 
 #include <unistd.h>
@@ -64,10 +65,11 @@ node    *find_node(node *b);
 void    ft_pushb_to_a(node **a, node **b);
 void    final_sort(node **a, node **b, node *cheapest);
 node *min_node(node *a);
-void    final_cost(node *b);
+void    final_cost(node *b, node *a);
 void    find_cost(node *lst);
 int    Middle_Check(node *lst, node *node);
 void final_step(node **a);
-int ft_check(node *a);
-
+void ft_rank(node *a);
+void ft_rank_util(node *lst, int *arr);
+void push_rest(node **a, node **b, int size);
 #endif

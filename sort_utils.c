@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:29:19 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/09 12:44:39 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/10 01:35:28 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,35 @@ int count_lst(node *a)
     }
     return (i);
 }
+
+void push_rest(node **a, node **b, int size)
+{
+	if (count_lst(*a) > 3)
+	{
+		if ((*a)->rank < size)
+			push_b(a, b);
+		else
+			rotate_a(a);
+	}
+	
+}
 void   push_ato_b(node **a, node **b)
  {
-    if ((*a) == NULL)
-		return ;
-	while(count_lst(*a) > 3)
+	int n;
+	int middle;
+	
+	ft_rank(*a);
+	n = count_lst(*a);
+	middle = n / 2;
+	while(count_lst(*a) > middle)
 	{
+		if ((*a)->rank < middle)
 			push_b(a, b);
+		else
+			rotate_a(a);
 	}
+	push_rest(a, b, n);
+	
  }
 
  int find_max(node *a)

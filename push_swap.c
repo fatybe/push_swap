@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:56:39 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/09 12:27:18 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/02/10 00:53:58 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int ac, char **av)
 {
     node *stack;
     
+    stack = NULL;
     stack = ft_fullstack(ac, av);
     if (!stack || is_duplicate(stack) == 1)
     {
