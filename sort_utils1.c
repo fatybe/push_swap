@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 21:43:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/10 01:13:18 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/23 22:40:54 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void ft_sort(node **a, node **b)
         final_sort(a, b, cheapest);
     }
     final_step(a);
-    node *tmp = *a;
-    while (tmp != NULL)
-    {
-        printf("%d\n",tmp->data);
-        tmp = tmp->next;
-    }
+    // node *tmp = *a;
+    // while (tmp != NULL)
+    // {
+    //     printf("%d\n",tmp->data);
+    //     tmp = tmp->next;
+    // }
 }

@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:20:45 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/08 16:45:55 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/23 22:51:10 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ra_rb(node **heada, node **headb)
     lastb->next = *headb;
     *headb = (*headb)->next;
     tmpb->next = NULL;
-    write (1,"rab\n", 4);
+    write (1,"rr\n", 3);
 }
 void rra(node **lst)
 {

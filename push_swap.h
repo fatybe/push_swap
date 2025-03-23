@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:59:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/10 01:35:44 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/23 22:16:21 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ node  *add_node(node **lst , node *newnode);
 node *newnode(int n);
 void	ft_checksigne(char *str);
 int is_duplicate(node *stack);
+//operation
 void    swap_a(node **head);
 void    swap_a_b(node *heada, node *headb);
 void    push_a(node **heada, node **headb);
@@ -52,19 +53,22 @@ void ra_rb(node **heada, node **headb);
 void rra(node **lst);
 void rrb(node **lst);
 void rrr(node **lsta, node **lstb);
+//sorting
 void    sort_turk(node **a);
 void   push_ato_b(node **a, node **b);
 int check_sort(node *lst);
 void    sort_three(node **a);
+
 int find_max(node *a);
 int find_min(node *a);
 int count_lst(node *a);
-void ft_sort(node **a, node **b);
 void find_target(node *a, node *b);
 node    *find_node(node *b);
+node *min_node(node *a);
+
+void ft_sort(node **a, node **b);
 void    ft_pushb_to_a(node **a, node **b);
 void    final_sort(node **a, node **b, node *cheapest);
-node *min_node(node *a);
 void    final_cost(node *b, node *a);
 void    find_cost(node *lst);
 int    Middle_Check(node *lst, node *node);

@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:29:19 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/10 01:35:28 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/23 22:20:10 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,15 @@ void push_rest(node **a, node **b, int size)
 }
 void   push_ato_b(node **a, node **b)
  {
-	int n;
-	int middle;
-	
-	ft_rank(*a);
-	n = count_lst(*a);
-	middle = n / 2;
-	while(count_lst(*a) > middle)
+	int min = find_min(*a);
+	int max = find_max(*a);
+	int n = min + max;
+	while (count_lst(*a) > 3)
 	{
-		if ((*a)->rank < middle)
-			push_b(a, b);
-		else
-			rotate_a(a);
+		push_b(a, b);
+		if ((*b)->data >= n)
+			rotate_b(b);
 	}
-	push_rest(a, b, n);
-	
  }
 
  int find_max(node *a)

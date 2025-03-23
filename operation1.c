@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:20:28 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/08 16:44:33 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/23 22:50:51 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void    swap_a_b(node *heada, node *headb)
         headb->data = headb->next->data;
         headb->next->data = tmpb->data;
     }
-    write (1,"sab\n", 4);
+    write (1,"ss\n", 3);
 }
 
 void    push_a(node **heada, node **headb)
