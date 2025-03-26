@@ -6,69 +6,64 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:29:19 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/23 22:20:10 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:06:22 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_sort(node *lst)
+int	check_sort(t_node *lst)
 {
-    node *tmp;
-    while (lst != NULL)
-    {
-        tmp = lst->next;
-        while (tmp != NULL)
-        {
-            if (tmp->data < lst->data)
-                return (1);
-            tmp = tmp->next;
-        }
-        lst = lst->next;
-    }
-    return (0);
-}
-int count_lst(node *a)
-{
-    int i;
+	t_node	*tmp;
 
-    i = 0;
-    while (a != NULL)
-    {
-        i++;
-        a = a->next;
-    }
-    return (i);
-}
-
-void push_rest(node **a, node **b, int size)
-{
-	if (count_lst(*a) > 3)
+	while (lst != NULL)
 	{
-		if ((*a)->rank < size)
-			push_b(a, b);
-		else
-			rotate_a(a);
+		tmp = lst->next;
+		while (tmp != NULL)
+		{
+			if (tmp->data < lst->data)
+				return (1);
+			tmp = tmp->next;
+		}
+		lst = lst->next;
 	}
-	
+	return (0);
 }
-void   push_ato_b(node **a, node **b)
- {
-	int min = find_min(*a);
-	int max = find_max(*a);
-	int n = min + max;
+
+int	count_lst(t_node *a)
+{
+	int	i;
+
+	i = 0;
+	while (a != NULL)
+	{
+		i++;
+		a = a->next;
+	}
+	return (i);
+}
+
+void	push_ato_b(t_node **a, t_node **b)
+{
+	int	min;
+	int	max;
+	int	n;
+
+	min = find_min(*a);
+	max = find_max(*a);
+	n = min + max;
 	while (count_lst(*a) > 3)
 	{
 		push_b(a, b);
 		if ((*b)->data >= n)
-			rotate_b(b);
+			rb(b);
 	}
- }
+}
 
- int find_max(node *a)
+int	find_max(t_node *a)
 {
-	int max;
-	node *lst;
+	int		max;
+	t_node	*lst;
 
 	lst = a;
 	max = lst->data;
@@ -80,10 +75,11 @@ void   push_ato_b(node **a, node **b)
 	}
 	return (max);
 }
- int find_min(node *a)
+
+int	find_min(t_node *a)
 {
-	int min;
-	node *lst;
+	int		min;
+	t_node	*lst;
 
 	lst = a;
 	min = lst->data;
@@ -94,19 +90,4 @@ void   push_ato_b(node **a, node **b)
 		lst = lst->next;
 	}
 	return (min);
-}
-
- void    sort_three(node **a)
-{
-	int max;
-	node *tmp;
-
-	max = find_max(*a);
-	tmp = *a;
-	if (max == tmp->data)
-		rotate_a(a);
-	else if (max == tmp->next->data)
-		rra(a);
-	if (check_sort(*a) == 1)
-		swap_a(a);
 }

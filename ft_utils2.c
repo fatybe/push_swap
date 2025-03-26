@@ -6,20 +6,20 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:02:43 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/02/01 16:41:23 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:01:59 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-node  *add_node(node **lst , node *newnode)
+t_node	*add_node(t_node **lst, t_node *newnode)
 {
-	node *head;
-	node *last;
-	
+	t_node	*head;
+	t_node	*last;
+
 	head = *lst;
 	if (lst == NULL && newnode == NULL)
-		return (NULL);   
+		return (NULL);
 	if (*lst == NULL)
 	{
 		*lst = newnode;
@@ -34,11 +34,13 @@ node  *add_node(node **lst , node *newnode)
 	return (head);
 }
 
-node *newnode(int n)
+t_node	*newnode(int n)
 {
-	node* head = NULL;
-	node* lst;
-	lst = malloc(sizeof(node));
+	t_node	*head;
+	t_node	*lst;
+
+	head = NULL;
+	lst = malloc(sizeof(t_node));
 	if (!lst)
 		return (NULL);
 	lst->data = n;
@@ -46,4 +48,3 @@ node *newnode(int n)
 	head = lst;
 	return (head);
 }
-

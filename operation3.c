@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   operation3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 21:26:14 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/25 22:05:47 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/03/25 18:09:44 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/03/25 22:05:20 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_node **a)
+void	reverse_rotateb(t_node **b)
 {
-	int		max;
-	t_node	*tmp;
-
-	max = find_max(*a);
-	tmp = *a;
-	if (max == tmp->data)
-		ra(a);
-	else if (max == tmp->next->data)
-		reverse_rotatea(a);
-	if (check_sort(*a) == 1)
-		swap_a(a);
+	if (*b && (*b)->next)
+	{
+		rrb(b);
+		write(1, "rrb\n", 4);
+	}
 }
 
-void	sort_turk(t_node **a)
+void	reverse_rotatea(t_node **a)
 {
-	t_node	*b;
+	if (*a && (*a)->next)
+	{
+		rrb(a);
+		write(1, "rra\n", 4);
+	}
+}
 
-	b = NULL;
-	push_ato_b(a, &b);
-	if (check_sort(*a) == 1)
-		sort_three(a);
-	ft_sort(a, &b);
+void	ra(t_node **a)
+{
+	if ((*a) && (*a)->next)
+	{
+		rotate_a(a);
+		write(1, "ra\n", 3);
+	}
+}
+
+void	rb(t_node **b)
+{
+	if (*b && (*b)->next)
+	{
+		rotate_a(b);
+		write(1, "rb\n", 3);
+	}
 }

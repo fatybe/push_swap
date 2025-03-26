@@ -6,74 +6,77 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:59:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/23 22:16:21 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/26 08:26:45 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-typedef struct node {
-    int data;
-    struct node* next;
-    struct node *target;
-    int total_cost;
-    int cost;
-    int rank;
-}node;
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+typedef struct node
+{
+	int			data;
+	struct node	*next;
+	struct node	*target;
+	int			total_cost;
+	int			cost;
+	int			rank;
+}				t_node;
 
+t_node			*ft_fullstack(int ac, char **av);
+int				count_array(char **arv);
+char			*ft_strjoin(int ac, char **av);
+int				ft_atoi(char *str);
+int				is_digite(char c);
+void			free_stack(t_node **a);
+void			free_all(t_node **a, t_node **b);
+void			ft_error(void);
+t_node			*creat_stack(char *str);
+t_node			*add_node(t_node **lst, t_node *newnode);
+t_node			*newnode(int n);
+int				is_duplicate(t_node *stack);
+int				handle_max_min(t_node *stack);
+int				is_empty(char *str);
+int				validate_input(char *str);
+int				ft_isspace(char c);
+// operation
+void			swap_a(t_node **head);
+void			swap_a_b(t_node *heada, t_node *headb);
+void			push_a(t_node **heada, t_node **headb);
+void			push_b(t_node **heada, t_node **headb);
+void			rotate_a(t_node **lsta);
+void			rotate_b(t_node **lstb);
+void			ra_rb(t_node **heada, t_node **headb);
+void			rra(t_node **lst);
+void			rrb(t_node **lst);
+void			rrr(t_node **lsta, t_node **lstb);
+void			reverse_rotateb(t_node **b);
+void			reverse_rotatea(t_node **a);
+void			ra(t_node **a);
+void			rb(t_node **b);
 
-node *ft_fullstack(int ac, char **av);
-int count_array(char ** arv);
-char *ft_strjoin(int ac, char **av);
-int ft_atoi(char *str);
-int is_digite(char c);
-void    free_stack(node **a);
-void free_all(node **a, node **b);
-void    ft_error(void);
-node *creat_stack(char *str);
-void    ft_checkdigit(char *str);
-node  *add_node(node **lst , node *newnode);
-node *newnode(int n);
-void	ft_checksigne(char *str);
-int is_duplicate(node *stack);
-//operation
-void    swap_a(node **head);
-void    swap_a_b(node *heada, node *headb);
-void    push_a(node **heada, node **headb);
-void    push_b(node **heada, node **headb);
-void    rotate_a(node **lsta);
-void rotate_b(node **lstb);
-void ra_rb(node **heada, node **headb);
-void rra(node **lst);
-void rrb(node **lst);
-void rrr(node **lsta, node **lstb);
-//sorting
-void    sort_turk(node **a);
-void   push_ato_b(node **a, node **b);
-int check_sort(node *lst);
-void    sort_three(node **a);
+// sorting
+void			sort_turk(t_node **a);
+void			push_ato_b(t_node **a, t_node **b);
+int				check_sort(t_node *lst);
+void			sort_three(t_node **a);
 
-int find_max(node *a);
-int find_min(node *a);
-int count_lst(node *a);
-void find_target(node *a, node *b);
-node    *find_node(node *b);
-node *min_node(node *a);
+int				find_max(t_node *a);
+int				find_min(t_node *a);
+int				count_lst(t_node *a);
+void			find_target(t_node *a, t_node *b);
+t_node			*find_node(t_node *b);
+t_node			*min_node(t_node *a);
 
-void ft_sort(node **a, node **b);
-void    ft_pushb_to_a(node **a, node **b);
-void    final_sort(node **a, node **b, node *cheapest);
-void    final_cost(node *b, node *a);
-void    find_cost(node *lst);
-int    Middle_Check(node *lst, node *node);
-void final_step(node **a);
-void ft_rank(node *a);
-void ft_rank_util(node *lst, int *arr);
-void push_rest(node **a, node **b, int size);
+void			ft_sort(t_node **a, t_node **b);
+void			final_sort(t_node **a, t_node **b, t_node *cheapest);
+void			final_cost(t_node *b, t_node *a);
+void			find_cost(t_node *lst);
+int				middle_check(t_node *lst, t_node *node);
+void			final_step(t_node **a);
 #endif
