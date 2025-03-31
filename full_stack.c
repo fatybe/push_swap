@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   full_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:57:22 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/26 08:30:21 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:10:41 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*creat_stack(char *str)
 {
 	t_node	*lst;
 	t_node	*tmp;
-	int		n;
+	long	n;
 	int		i;
 
 	tmp = NULL;
@@ -49,7 +49,7 @@ int	validate_input(char *str)
 		if (str[i] == '-' || str[i] == '+')
 		{
 			i++;
-			if (str[i] <= '0' || str[i] >= '9')
+			if (str[i] < '0' || str[i] > '9')
 				return (1);
 		}
 		if (str[i] && (str[i] < '0' || str[i] > '9'))
@@ -97,7 +97,7 @@ t_node	*ft_fullstack(int ac, char **av)
 		str = ft_strjoin(ac, av);
 		if (!str)
 			return (NULL);
-		if (is_empty(str) == 1 || validate_input(str) == 1)
+		if (validate_input(str) == 1)
 		{
 			free(str);
 			ft_error();

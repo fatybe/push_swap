@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:59:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/26 08:26:45 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/27 14:29:23 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,33 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
 typedef struct node
 {
-	int			data;
+	long		data;
 	struct node	*next;
 	struct node	*target;
 	int			total_cost;
 	int			cost;
-	int			rank;
 }				t_node;
 
 t_node			*ft_fullstack(int ac, char **av);
 int				count_array(char **arv);
 char			*ft_strjoin(int ac, char **av);
-int				ft_atoi(char *str);
+long			ft_atoi(char *str);
 int				is_digite(char c);
 void			free_stack(t_node **a);
-void			free_all(t_node **a, t_node **b);
 void			ft_error(void);
 t_node			*creat_stack(char *str);
 t_node			*add_node(t_node **lst, t_node *newnode);
-t_node			*newnode(int n);
+t_node			*newnode(long n);
 int				is_duplicate(t_node *stack);
-int				handle_max_min(t_node *stack);
+int				handle_max_min(long n);
 int				is_empty(char *str);
 int				validate_input(char *str);
+int				ft_isspace(char c);
 int				ft_isspace(char c);
 // operation
 void			swap_a(t_node **head);

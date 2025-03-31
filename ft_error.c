@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:34:00 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/25 22:00:58 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/27 21:14:10 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ void	free_stack(t_node **a)
 	*a = NULL;
 }
 
-void	free_all(t_node **a, t_node **b)
-{
-	free_stack(a);
-	free_stack(b);
-}
-
 int	is_digite(char c)
 {
 	if (c >= '0' && c <= '9')
@@ -45,6 +39,6 @@ int	is_digite(char c)
 
 void	ft_error(void)
 {
-	write(1, "ERROR\n", 6);
+	write(2, "Error\n", 6);
 	exit(0);
 }

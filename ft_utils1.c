@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:17:50 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/26 08:29:06 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/27 00:34:00 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,19 @@ void	invalide_inpute(t_node *stack)
 	ft_error();
 }
 
-int	handle_max_min(t_node *stack)
+int	handle_max_min(long n)
 {
-	while (stack)
-	{
-		if (stack->data >= INT_MAX || stack->data <= INT_MIN)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
+	if (n > 2147483647 || n < -2147483647)
+		return (1);
+	else
+		return (0);
 }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	signe;
-	int	res;
-	int	i;
+	int		signe;
+	long	res;
+	int		i;
 
 	signe = 1;
 	res = 0;

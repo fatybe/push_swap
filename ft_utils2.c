@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:02:43 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/25 22:01:59 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/27 00:08:17 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_node	*add_node(t_node **lst, t_node *newnode)
 	return (head);
 }
 
-t_node	*newnode(int n)
+t_node	*newnode(long n)
 {
 	t_node	*head;
 	t_node	*lst;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenjama <fbenjama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 21:29:19 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/25 22:06:22 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/27 21:35:42 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,18 @@
 int	check_sort(t_node *lst)
 {
 	t_node	*tmp;
+	t_node	*stack;
 
+	stack = lst;
+	while (stack)
+	{
+		if (handle_max_min(stack->data) == 1)
+		{
+			write(2, "Error\n", 6);
+			return (0);
+		}
+		stack = stack->next;
+	}
 	while (lst != NULL)
 	{
 		tmp = lst->next;
